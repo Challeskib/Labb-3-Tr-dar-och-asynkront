@@ -39,7 +39,7 @@ namespace Labb_3___Trådar_och_asynkront
 
                 DistanceInKm += (double)Speed / 3600; // //Divide by 3600 to get km/seconds
 
-                if (DistanceInKm >= 0.2)
+                if (DistanceInKm >= 1)
                 {
                     break;
                 }
