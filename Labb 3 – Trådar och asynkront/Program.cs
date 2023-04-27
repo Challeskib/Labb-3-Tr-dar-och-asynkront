@@ -20,9 +20,8 @@ namespace Labb_3___Trådar_och_asynkront
 
             thread1.Start();
             thread2.Start();
-            thread3.Start();
 
-            
+            thread3.Start();
 
             thread1.Join();
             thread2.Join();

@@ -22,14 +22,14 @@ namespace Labb_3___Trådar_och_asynkront
             Name = name;
             Speed = speed;
             DistanceInKm = distanceInKm;
-
-
         }
 
         public void StartRace()
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            sw.Start();
+            Stopwatch sw = new Stopwatch();
+
+            Thread swThread = new Thread(() =>  sw.Start());
+            swThread.Start();
 
             Console.WriteLine($"{Name} started");
 
@@ -39,13 +39,12 @@ namespace Labb_3___Trådar_och_asynkront
 
                 DistanceInKm += (double)Speed / 3600; // //Divide by 3600 to get km/seconds
 
-                if (DistanceInKm >= 1)
+                if (DistanceInKm >= 0.2)
                 {
                     break;
                 }
 
-
-                if (i == 5 || i == 10 || i == 15 || i == 20 || i == 25 || i == 30 || i == 35 || i == 40 || i == 45 || i == 50 || i == 55 || i == 60)
+                if (i % 5 == 0 && i != 0)
                 {
                     CarProblem();
                 }
@@ -59,19 +58,13 @@ namespace Labb_3___Trådar_och_asynkront
             }
             RaceTime = sw.Elapsed;
             sw.Stop();
-
             
         }
-
-        
-
         public void CarProblem()
         {
-
             Random random = new Random();
 
             int randomIncident = random.Next(1, 101);
-
 
             ///ODDSEN ÄR FEL, FIXA SEN
             if (randomIncident > 0 && randomIncident <= 2)
