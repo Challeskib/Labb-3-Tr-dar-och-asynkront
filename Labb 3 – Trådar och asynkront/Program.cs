@@ -29,6 +29,8 @@ namespace Labb_3___Trådar_och_asynkront
 
             thread1.Join();
             thread2.Join();
+            thread3.Join();
+
 
             Console.WriteLine("Scores: ");
             Console.WriteLine($"Car: {car1.Name} Time: {car1.RaceTime} ");
